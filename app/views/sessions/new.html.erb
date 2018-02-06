@@ -1,1 +1,14 @@
-<h1>sessions#new</h1>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card border-primary bg-light mt-5">
+      <div class="card-body">
+        <h1 class="text-center">Log in</h1>
+        <%= simple_form_for :user, url: sessions_path do |f| %>
+          <%= f.input :username %>
+          <%= f.input :password %>
+          <%= f.submit 'Log in', class: 'btn btn-primary btn-block btn-lg' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
