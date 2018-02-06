@@ -1,1 +1,41 @@
-<h1>tasks#new</h1>
+<% if current_user.nil? %>
+  <div class="jumbotron my-3">
+    <h1 class="display-3">Awesome To-Do List</h1>
+    <p class="lead">
+      Welcome to the ultimate Awesome To-Do List application! Because all you need to organize your life is another to-do app. This one isn't like the others though, oh no! It is completely unique and will change everything.
+    </p>
+    <p class="lead">
+      <%= link_to "Try it for free!", signup_path, class: 'btn btn-primary btn-lg' %>
+    </p>
+    <p>Already signed up? <%= link_to "Log in", login_path %></p>
+  </div>
+<% else %>
+
+  <%= simple_form_for Task.new, wrapper: :inline_form,
+    html: { class: 'form-inline my-3' }  do |f| %>
+    <%= f.input :name, input_html: { class: 'mr-2' } %>
+    <%= f.submit "Add Task", class: 'btn btn-primary' %>
+  <% end %>
+
+  <% if @incomplete_tasks.empty? && @complete_tasks.empty? %>
+    <p>Currently no tasks. Add one above.</p>
+  <% else %>
+    <div class="card bg-dark text-white my-3">
+      <div class="card-header h2">Incomplete Tasks</div>
+      <div class="card-body">
+        <div class="card-text">
+          <%= render @incomplete_tasks %>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-light my-3">
+      <div class="card-header h2">Complete Tasks</div>
+      <div class="card-body">
+        <div class="card-text">
+          <%= render @complete_tasks %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
