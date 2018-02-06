@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   def index
-    #code
   end
 
   def create
@@ -17,7 +16,7 @@ class TasksController < ApplicationController
 
   private
 
-    def task_params 
+    def task_params
       #code
     end
 end
