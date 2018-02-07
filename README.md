@@ -7,7 +7,7 @@ http://railscasts.com/episodes/393-guest-user-record
 ```coffee
 jQuery ->
   $('.edit_task label input[type=checkbox]').click ->
-    $.ajax                                        # request url 
+    $.ajax                                        # request url
       url: $(this).parent('label').parent('form')[0].action
       headers:                                    # request header
         Accept: 'text/javascript; charset=utf-8'
@@ -34,6 +34,8 @@ Processing by TasksController#update as JS
   Rendered tasks/update.js.erb (0.4ms)
 Completed 200 OK in 14ms (Views: 6.2ms | ActiveRecord: 1.9ms)
 ```
+
+![](https://ws3.sinaimg.cn/large/006tNc79ly1fo8dheab61j31kw0s3wk0.jpg)
 
 ## 参考链接
 [1] https://5minutenpause.com/blog/2014/03/28/submit-remote-forms-with-jquery-in-rails/
