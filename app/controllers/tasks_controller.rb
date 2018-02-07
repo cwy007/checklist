@@ -7,20 +7,21 @@ class TasksController < ApplicationController
   end
 
   def create
-    #code
+    @task = current_user.tasks.create!(task_params)
+    redirect_to tasks_path
   end
 
   def update
     #code
   end
 
-  def create
+  def destroy
     #code
   end
 
   private
 
     def task_params
-      #code
+      params.require(:task).permit(:name, :complete)
     end
 end
