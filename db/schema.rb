@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20180208153544) do
     t.integer "user_id"
     t.string "name"
     t.boolean "complete", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -23,7 +25,9 @@ ActiveRecord::Schema.define(version: 20180208153544) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.boolean "guest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "guest", default: false, null: false
   end
 
 end
