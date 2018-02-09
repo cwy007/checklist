@@ -14,12 +14,13 @@
   <%= render 'form' %>
 
   <% if @incomplete_tasks.empty? && @complete_tasks.empty? %>
-    <p>Currently no tasks. Add one above.</p>
-  <% else %>
+    <p id="no-tasks">Currently no tasks. Add one above.</p>
+  <% end %>
+
     <div class="card bg-dark text-white my-3">
       <div class="card-header h2">Incomplete Tasks</div>
       <div class="card-body">
-        <div class="card-text" id="js-incomplete-tasks">
+        <div class="card-text incomplete-tasks" id="js-incomplete-tasks">
           <%= render @incomplete_tasks %>
         </div>
       </div>
@@ -27,11 +28,10 @@
     <div class="card bg-light my-3">
       <div class="card-header h2">Complete Tasks</div>
       <div class="card-body">
-        <div class="card-text" id="js-complete-tasks">
+        <div class="card-text complete-tasks" id="js-complete-tasks">
           <%= render @complete_tasks %>
         </div>
       </div>
     </div>
-  <% end %>
 
 <% end %>

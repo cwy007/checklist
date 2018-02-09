@@ -3,6 +3,9 @@ class TasksController < ApplicationController
     if current_user
       @incomplete_tasks = current_user.tasks.where(complete: false)
       @complete_tasks   = current_user.tasks.where(complete: true)
+    else
+      @incomplete_tasks = []
+      @complete_tasks   = []
     end
   end
 
